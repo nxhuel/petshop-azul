@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Petshop Mi Amigo Fiel | Tu Vecino de Confianza en Monte Castro
+    </title>
+    <meta
+      name="description"
+      content="Cuidamos a tu mejor amigo con amor y profesionalismo. Peluquería canina, alimentos premium y farmacia veterinaria en el corazón de Monte Castro."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    />
+    <link href="assets/logo.png" rel="icon" type="image/png" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#91430F", // Rich Brown
+              secondary: "#E3AFCC", // Soft Pink
+              accent: "#E4BE63", // Golden Yellow
+              surface: "#FFF8F6",
+              "on-surface": "#2B1612",
+              "on-surface-variant": "#55433A",
+              "surface-container": "#FFE9E6",
+              "surface-container-high": "#FFE2DD",
+              "secondary-container": "#FEC8E6",
+            },
+            fontFamily: {
+              headline: ['"Plus Jakarta Sans"', "sans-serif"],
+              body: ['"Nunito Sans"', "sans-serif"],
+            },
+            borderRadius: {
+              xl: "1.5rem",
+              "2xl": "2rem",
+            },
+            boxShadow: {
+              tactile: "0px 4px 20px rgba(176, 90, 38, 0.08)",
+              floating: "0px 8px 30px rgba(176, 90, 38, 0.12)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.write('<script src="script.js?v=' + Date.now() + '"><\/script>');
+    </script>
+  </head>
+  <body class="bg-surface text-on-surface font-body overflow-x-hidden">
+    <!-- Header / Navigation -->
+    <header
+      id="main-header"
+      class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <a href="#main-header" class="flex items-center gap-3 group">
+          <div
+            class="w-12 h-12 bg-white rounded-full flex items-center justify-center p-1 shadow-floating group-hover:scale-110 transition-transform"
+          >
+            <img
+              src="assets/logo.png"
+              alt="Logo Mi Amigo Fiel"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <span
+            class="font-headline text-xl md:text-2xl font-bold tracking-tight text-primary"
+            >Mi Amigo Fiel</span
+          >
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-10">
+          <a
+            href="#servicios"
+            class="font-semibold text-on-surface-variant hover:text-primary transition-colors"
+            >Servicios</a
+          >
+          <a
+            href="#catalogo"
+            class="font-semibold text-on-surface-variant hover:text-primary transition-colors"
+            >Catálogo</a
+          >
+          <a
+            href="#comunidad"
+            class="font-semibold text-on-surface-variant hover:text-primary transition-colors"
+            >Comunidad</a
+          >
+          <a
+            href="#contacto"
+            class="font-semibold text-on-surface-variant hover:text-primary transition-colors"
+            >Ubicación</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="https://wa.me/541133501445"
+            target="_blank"
+            class="hidden sm:flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full font-bold shadow-floating hover:opacity-90 active:scale-95 transition-all"
+          >
+            <span class="material-symbols-outlined">calendar_today</span>
+            Turno Online
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="menu-toggle"
+            class="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
+            aria-label="Abrir menú"
+          >
+            <svg id="menu-icon" class="w-6 h-6 text-on-surface-variant" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 text-on-surface-variant hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden fixed top-20 left-0 right-0 h-[calc(100vh-5rem)] bg-white z-[100] hidden"
+      >
+        <nav class="flex flex-col p-6 gap-2">
+          <a
+            href="#servicios"
+            class="text-xl font-bold text-on-surface-variant py-4 border-b border-gray-100 hover:text-primary hover:bg-gray-50 transition-colors"
+            >Servicios</a
+          >
+          <a
+            href="#catalogo"
+            class="text-xl font-bold text-on-surface-variant py-4 border-b border-gray-100 hover:text-primary hover:bg-gray-50 transition-colors"
+            >Catálogo</a
+          >
+          <a
+            href="#comunidad"
+            class="text-xl font-bold text-on-surface-variant py-4 border-b border-gray-100 hover:text-primary hover:bg-gray-50 transition-colors"
+            >Comunidad</a
+          >
+          <a
+            href="#contacto"
+            class="text-xl font-bold text-on-surface-variant py-4 border-b border-gray-100 hover:text-primary hover:bg-gray-50 transition-colors"
+            >Ubicación</a
+          >
+          <a
+            href="https://wa.me/541133501445"
+            target="_blank"
+            class="mt-4 flex items-center justify-center gap-2 bg-primary !text-white px-6 py-3 rounded-full font-bold shadow-floating"
+          >
+            <span class="material-symbols-outlined">calendar_today</span>
+            Turno Online
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        <!-- Parallax Background -->
+        <div class="parallax-container absolute inset-0 z-0">
+          <div
+            class="parallax-bg absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1546377791-2e01b4449bf0?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div
+          class="relative z-10 max-w-5xl mx-auto px-6 text-center reveal flex flex-col items-center justify-center min-h-screen"
+        >
+          <span
+            class="inline-block bg-accent/90 backdrop-blur-sm text-on-surface px-8 py-2.5 rounded-full text-sm font-black mb-10 tracking-[0.2em] uppercase shadow-lg"
+          >
+            Monte Castro • Mi Amigo Fiel
+          </span>
+          <h1
+            class="font-headline text-3xl sm:text-5xl md:text-9xl font-black leading-tight md:leading-[0.9] text-white mb-6 md:mb-10 drop-shadow-2xl"
+          >
+            AMOR <br class="hidden sm:block" />
+            <span class="text-accent">INCONDICIONAL</span>
+          </h1>
+          <p
+            class="text-base sm:text-xl md:text-3xl text-white/90 mb-8 md:mb-14 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md px-4"
+          >
+            "Cuidamos a los que más querés con el corazón del barrio"
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center w-full px-10 sm:w-auto"
+          >
+            <a
+              href="https://wa.me/541133501445"
+              target="_blank"
+              class="bg-accent text-on-surface px-6 sm:px-12 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl shadow-xl hover:scale-105 transition-all text-center"
+            >
+              Agendar Turno
+            </a>
+            <a
+              href="#catalogo"
+              class="bg-primary text-white px-6 sm:px-12 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl hover:bg-white hover:text-primary transition-all text-center shadow-xl border-2 border-transparent hover:border-primary"
+            >
+              Ver Catálogo
+            </a>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce"
+        >
+          <span class="material-symbols-outlined text-white text-4xl"
+            >keyboard_double_arrow_down</span
+          >
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="servicios" class="py-24 bg-surface-container-high/50">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16 reveal">
+            <h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-4">
+              Nuestros Servicios
+            </h2>
+            <p class="text-on-surface-variant text-lg">
+              Tratamiento VIP para los integrantes más queridos de la familia
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Grooming -->
+            <div
+              class="md:col-span-2 bg-white p-8 md:p-12 rounded-3xl shadow-tactile flex flex-col md:flex-row gap-10 reveal"
+            >
+              <div class="md:w-1/2">
+                <div
+                  class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6"
+                >
+                  <span class="material-symbols-outlined text-4xl"
+                    >content_cut</span
+                  >
+                </div>
+                <h3 class="font-headline text-3xl font-bold mb-4">
+                  Peluquería Canina
+                </h3>
+                <p class="text-on-surface-variant mb-8 leading-relaxed">
+                  Un spa para tu mascota. Utilizamos productos hipoalergénicos
+                  de primera calidad y realizamos cortes según la raza o
+                  preferencia.
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-center gap-3 font-medium">
+                    <span class="material-symbols-outlined text-primary"
+                      >check_circle</span
+                    >
+                    Baños con shampoo premium
+                  </li>
+                  <li class="flex items-center gap-3 font-medium">
+                    <span class="material-symbols-outlined text-primary"
+                      >check_circle</span
+                    >
+                    Limpieza de oídos y uñas
+                  </li>
+                  <li class="flex items-center gap-3 font-medium">
+                    <span class="material-symbols-outlined text-primary"
+                      >check_circle</span
+                    >
+                    Cortes personalizados
+                  </li>
+                </ul>
+                <a
+                  href="https://wa.me/541133501445"
+                  target="_blank"
+                  class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-3 rounded-xl font-bold shadow-floating hover:opacity-90 transition-all"
+                >
+                  <span class="material-symbols-outlined">chat</span>
+                  Consultar Disponibilidad
+                </a>
+              </div>
+              <div class="md:w-1/2 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1471&auto=format&fit=crop"
+                  alt="Peluquería Canina"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <!-- Other Services -->
+            <div class="flex flex-col gap-8">
+              <div
+                class="bg-white p-8 rounded-3xl shadow-tactile reveal delay-100 flex-1"
+              >
+                <div
+                  class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center text-primary mb-6"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >medical_services</span
+                  >
+                </div>
+                <h3 class="font-headline text-xl font-bold mb-2">
+                  Farmacia Veterinaria
+                </h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Pipetas, antiparasitarios y suplementos para mantener a tu
+                  mascota saludable todo el año.
+                </p>
+              </div>
+              <div
+                class="bg-white p-8 rounded-3xl shadow-tactile reveal delay-200 flex-1"
+              >
+                <div
+                  class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center text-primary mb-6"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >restaurant</span
+                  >
+                </div>
+                <h3 class="font-headline text-xl font-bold mb-2">
+                  Asesoramiento Nutricional
+                </h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  Te ayudamos a elegir el mejor alimento según la edad, peso y
+                  necesidades de tu compañero.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalog Section -->
+      <section id="catalogo" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          >
+            <div class="reveal">
+              <h2
+                class="font-headline text-4xl md:text-5xl font-extrabold mb-4"
+              >
+                Lo mejor para ellos
+              </h2>
+              <p class="text-on-surface-variant text-lg">
+                Catálogo seleccionado de productos premium
+              </p>
+            </div>
+            <a
+              href="https://wa.me/541133501445"
+              target="_blank"
+              class="text-primary font-bold flex items-center gap-2 hover:underline group reveal"
+            >
+              Preguntar por stock
+              <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div
+              class="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl h-[500px] shadow-tactile reveal"
+            >
+              <img
+                src="assets/alimento.png"
+                alt="Alimentos Premium"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-8"
+              >
+                <h3 class="text-white font-headline text-2xl font-bold mb-2">
+                  Alimentos Premium
+                </h3>
+                <p class="text-white/80">Marcas nacionales e importadas</p>
+              </div>
+            </div>
+            <div
+              class="relative group overflow-hidden rounded-3xl h-[240px] shadow-tactile reveal delay-100"
+            >
+              <img
+                src="assets/juguete.png"
+                alt="Juguetes"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-lg">Juguetes</span>
+              </div>
+            </div>
+            <div
+              class="relative group overflow-hidden rounded-3xl h-[240px] shadow-tactile reveal delay-200"
+            >
+              <img
+                src="assets/accesorio.png"
+                alt="Accesorios"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <span class="text-white font-bold text-lg">Accesorios</span>
+              </div>
+            </div>
+            <div
+              class="col-span-2 relative group overflow-hidden rounded-3xl h-[240px] shadow-tactile reveal delay-300"
+            >
+              <img
+                src="assets/confort.png"
+                alt="Higiene"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-secondary/80 to-transparent flex items-center p-8"
+              >
+                <h3 class="text-primary font-headline text-2xl font-bold">
+                  Higiene y Confort
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Proof Section - Comunidad con Reels -->
+      <section id="comunidad" class="py-20 bg-[#FFE9E6] overflow-hidden">
+        <div class="max-w-[1200px] mx-auto px-6">
+          <div class="text-center mb-12">
+            <h2
+              class="font-headline text-4xl md:text-5xl font-extrabold text-[#2b1612] mb-4"
+            >
+              Mirá lo que pasa en casa
+            </h2>
+
+            <p class="text-[#55433a] text-lg md:text-xl max-w-2xl mx-auto mb-6">
+              Compartimos momentos únicos de nuestros clientes todos los días.
+
+              <a
+                href="https://www.instagram.com/petshopmiamigofiel/"
+                target="_blank"
+                class="text-[#91430f] font-bold hover:underline"
+              >
+                @petshopmiamigofiel
+              </a>
+            </p>
+          </div>
+
+          <!-- GRID REELS -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Reel 1 -->
+            <a
+              href="https://www.instagram.com/petshopmiamigofiel/"
+              target="_blank"
+              class="group"
+            >
+              <div
+                class="relative aspect-[9/16] md:aspect-[4/5] rounded-2xl overflow-hidden shadow-floating bg-black"
+              >
+                <video
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                >
+                  <source src="assets/reel-1.mp4" type="video/mp4" />
+                </video>
+
+                <!-- Overlay -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                ></div>
+
+                <!-- Icono Instagram -->
+                <div
+                  class="absolute top-4 right-4 bg-black/40 backdrop-blur-md p-2 rounded-full"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 1.8h8.5a3.95 3.95 0 0 1 3.95 3.95v8.5a3.95 3.95 0 0 1-3.95 3.95h-8.5a3.95 3.95 0 0 1-3.95-3.95v-8.5A3.95 3.95 0 0 1 7.75 3.8zm8.9 1.35a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8zM12 6.2A5.8 5.8 0 1 0 17.8 12 5.807 5.807 0 0 0 12 6.2zm0 1.8A4 4 0 1 1 8 12a4.005 4.005 0 0 1 4-4z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+
+            <!-- Reel 2 -->
+            <a
+              href="https://www.instagram.com/petshopmiamigofiel/"
+              target="_blank"
+              class="group"
+            >
+              <div
+                class="relative aspect-[9/16] md:aspect-[4/5] rounded-2xl overflow-hidden shadow-floating bg-black"
+              >
+                <video
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                >
+                  <source src="assets/reel-2.mp4" type="video/mp4" />
+                </video>
+
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                ></div>
+              </div>
+            </a>
+
+            <!-- Reel 3 -->
+            <a
+              href="https://www.instagram.com/petshopmiamigofiel/"
+              target="_blank"
+              class="group"
+            >
+              <div
+                class="relative aspect-[9/16] md:aspect-[4/5] rounded-2xl overflow-hidden shadow-floating bg-black"
+              >
+                <video
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                >
+                  <source src="assets/reel-3.mp4" type="video/mp4" />
+                </video>
+
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                ></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div class="text-center mt-10">
+            <a
+              href="https://www.instagram.com/petshopmiamigofiel/"
+              target="_blank"
+              class="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-lg shadow-floating hover:opacity-90 transition-all"
+            >
+              <span>Ver más en Instagram</span>
+
+              <span class="material-symbols-outlined"> arrow_forward </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contacto" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+              <h2
+                class="font-headline text-4xl md:text-5xl font-extrabold mb-8"
+              >
+                Vení a visitarnos
+              </h2>
+              <div class="space-y-10">
+                <div class="flex gap-6">
+                  <div
+                    class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >location_on</span
+                    >
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-xl mb-1">Ubicación</h4>
+                    <p class="text-on-surface-variant">
+                      Av. Alvarez Jonte 5133, Monte Castro
+                    </p>
+                    <p class="text-on-surface-variant">CABA, Buenos Aires</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div
+                    class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >schedule</span
+                    >
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-xl mb-1">Horarios</h4>
+                    <p class="text-on-surface-variant">
+                      Lun a Vie: 09:00 - 19:30 hs
+                    </p>
+                    <p class="text-on-surface-variant">
+                      Sábados: 09:00 - 14:00 hs
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div
+                    class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-3xl">call</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-xl mb-1">Contacto</h4>
+                    <p class="text-on-surface-variant">
+                      WhatsApp: 11 2751-9141
+                    </p>
+                    <p class="text-on-surface-variant">@petshopmiamigofiel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-3xl overflow-hidden shadow-floating h-[500px] reveal delay-200 border-8 border-white"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.693710787118!2d-58.5133!3d-34.6133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb8309a473f3d%3A0x6e241e17e4f0f0f!2sAv.%20Álvarez%20Jonte%205133%2C%20C1407%20CABA!5e0!3m2!1ses-419!2sar!4v1715222000000!5m2!1ses-419!2sar"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer - Nuevo Diseño v2 -->
+    <footer
+      class="bg-surface-container-high py-8 border-t border-on-surface-variant/30"
+    >
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start mb-4">
+          <div class="md:col-span-2">
+            <span
+              class="font-headline text-2xl text-primary block mb-2 font-bold"
+              >Mi Amigo Fiel</span
+            >
+            <p class="text-sm text-on-surface-variant mb-4 max-w-sm">
+              Cuidando a las mascotas del barrio con amor y profesionalismo. Tu
+              vecino de confianza en Monte Castro.
+            </p>
+            <div class="flex gap-4">
+              <a
+                class="text-primary text-sm hover:translate-x-1 transition-transform"
+                href="https://www.instagram.com/petshopmiamigofiel/"
+                target="_blank"
+                >Instagram</a
+              >
+              <a
+                class="text-primary text-sm hover:translate-x-1 transition-transform"
+                href="https://wa.me/541127519141"
+                target="_blank"
+                >WhatsApp</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm mb-2">Accesos Rápidos</h4>
+            <ul class="space-y-1">
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#contacto"
+                  >Horarios</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#contacto"
+                  >Ubicación</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#"
+                  >Términos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm mb-2">Servicios</h4>
+            <ul class="space-y-1">
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#servicios"
+                  >Baño y Corte</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#catalogo"
+                  >Alimentos</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant text-sm hover:text-primary transition-all"
+                  href="#catalogo"
+                  >Accesorios</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-on-surface-variant/10 pt-4 text-center md:text-left"
+        >
+          <p class="text-[12px] text-on-surface-variant/70">
+            © 2026 Petshop Mi Amigo Fiel - Monte Castro.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a
+      href="https://wa.me/541127519141"
+      target="_blank"
+      class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40"
+    >
+      <span class="material-symbols-outlined text-4xl text-white">chat</span>
+    </a>
+
+    </body>
+</html>

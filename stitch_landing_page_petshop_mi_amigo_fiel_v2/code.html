@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Nunito+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#984714",
+                    "inverse-primary": "#ffb690",
+                    "tertiary": "#705500",
+                    "tertiary-container": "#8c6d19",
+                    "on-surface-variant": "#55433a",
+                    "outline": "#887369",
+                    "on-background": "#2b1612",
+                    "background": "#fff8f6",
+                    "surface-container-highest": "#ffdad4",
+                    "on-secondary-container": "#7a506a",
+                    "primary-container": "#b05a26",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#341100",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-dim": "#fad1ca",
+                    "on-primary-container": "#fff6f3",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fff8f6",
+                    "surface": "#fff8f6",
+                    "secondary-fixed": "#ffd8ec",
+                    "on-secondary-fixed": "#300f26",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#613a52",
+                    "tertiary-fixed-dim": "#e8c266",
+                    "on-tertiary-container": "#fff6ea",
+                    "outline-variant": "#dbc1b6",
+                    "surface-variant": "#ffdad4",
+                    "secondary": "#7c516b",
+                    "surface-container-low": "#fff0ee",
+                    "inverse-on-surface": "#ffedea",
+                    "on-tertiary-fixed-variant": "#5a4300",
+                    "surface-container": "#ffe9e6",
+                    "secondary-fixed-dim": "#ecb7d5",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#783200",
+                    "inverse-surface": "#432a26",
+                    "secondary-container": "#fec8e6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdf98",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#ffe2dd",
+                    "on-surface": "#2b1612",
+                    "primary": "#91430f",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffdbca",
+                    "primary-fixed-dim": "#ffb690"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Nunito Sans"],
+                    "label-sm": ["Nunito Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Nunito Sans"],
+                    "label-md": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .shadow-tactile {
+            box-shadow: 0px 4px 20px rgba(176, 90, 38, 0.08);
+        }
+        .shadow-floating {
+            box-shadow: 0px 8px 30px rgba(176, 90, 38, 0.12);
+        }
+        .organic-blob {
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0px_8px_30px_rgba(176,90,38,0.12)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-[1200px] mx-auto">
+<div class="flex items-center gap-sm">
+<img alt="Logo Mi Amigo Fiel" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ug2V2viNA9co9TZ7LzrBhCLtORRCFGZxVFP7-FKvpRY2yVACnf-7Ajcs_4yCdfiHkCAnoHORj_V8OyzMY5zRPobRIhuTVK2Iol1RuSC7-EJkm5lP0bgHmFKy4ZvciSzUb8gH_3VVcakeUnz4om-WyHBWanpkzHjRm1MhXdP8PnPcvFfITN1O1ZaLoO5x9zj8LAfD4XkOFKTUWDEbgQj9Gpsd8cKdPB-66UwHcrSwp_MO1pMEL2ehHw83fxcHkegoVDfxKfp9gJXRDU"/>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Mi Amigo Fiel</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="#servicios">Servicios</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="#catalogo">Catálogo</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md" href="#ubicacion">Ubicación</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="hidden lg:flex items-center gap-xs text-on-surface-variant hover:bg-primary/5 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md hover:opacity-90 transition-all active:scale-95">
+                    Agendar Baño/Corte
+                </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-xl pb-lg">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="z-10">
+<span class="inline-block bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full font-label-sm mb-md">
+                    Tu petshop de confianza en Monte Castro
+                </span>
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-md leading-tight">
+                    Cuidamos a tu mejor amigo en el corazón de <span class="text-primary">Monte Castro</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant mb-lg max-w-md">
+                    Somos vecinos dedicados al bienestar de tus mascotas. Brindamos atención personalizada, productos de calidad y el mejor servicio de peluquería canina de la zona.
+                </p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-[#E4BE63] text-[#2b1612] px-lg py-md rounded-lg font-label-md shadow-floating hover:brightness-105 transition-all">
+                        Agendar Baño/Corte
+                    </button>
+<button class="bg-secondary text-on-secondary px-lg py-md rounded-lg font-label-md hover:opacity-90 transition-all">
+                        Ver Productos
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-10 -right-10 w-72 h-72 bg-secondary-container/30 organic-blob -z-10 animate-pulse"></div>
+<div class="rounded-xl overflow-hidden shadow-floating border-4 border-surface">
+<img class="w-full h-[500px] object-cover" data-alt="A heart-warming, high-quality photograph of a golden retriever and a playful calico cat sitting together in a sun-drenched, modern living room. The lighting is soft and natural, emphasizing a clean, light-mode aesthetic with warm brown and soft pink accents in the background. The pets look happy and healthy, embodying the professional yet caring spirit of a high-end neighborhood pet shop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwy8N5sg4BBl5OByLL7A_7-aMiApXKKiA1ZLTSrYQm6ihv8BAexcXsIake46_EMaMXsyWlqIskKy4fwCc4DT8M9rHOTtx-OV_KxDY1uHwgLJSKSkKdZcVFKW0qTEGJV7et9JXnAcLEEq5OtxDJLMj0jXTxG8u3ZmqJnYOC14amj1yTHc-POGgmAvqOL7zd4KZek3sLcYm1TXylftH4qqQnk_hJk6CzDbmbkvGYbuvDNi7l1Q_0eAU6JB1AqJhK9SfguFqT-MQP3f8-"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-surface p-md rounded-xl shadow-tactile border border-outline-variant/30 flex items-center gap-sm">
+<div class="bg-primary-container p-2 rounded-full">
+<span class="material-symbols-outlined text-on-primary-container">pets</span>
+</div>
+<div>
+<p class="font-label-md text-primary">+500 Vecinos</p>
+<p class="text-label-sm text-on-surface-variant">Confían en nosotros</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="bg-surface-container-low py-xl" id="servicios">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-base">Nuestros Servicios Profesionales</h2>
+<p class="text-body-md text-on-surface-variant">Tratamiento VIP para los que más querés</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Main Service: Corte y Baño -->
+<div class="md:col-span-2 bg-surface p-lg rounded-xl shadow-tactile border border-outline-variant/20 flex flex-col md:flex-row gap-lg">
+<div class="md:w-1/2">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined text-[40px]">content_cut</span>
+<h3 class="font-headline-md text-headline-md">Corte y Baño Canino</h3>
+</div>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-xs text-body-md">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                Shampoos hipoalergénicos de primera línea.
+                            </li>
+<li class="flex items-center gap-xs text-body-md">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                Cortes de raza y personalizados.
+                            </li>
+<li class="flex items-center gap-xs text-body-md">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                Limpieza de oídos y corte de uñas incluido.
+                            </li>
+</ul>
+<button class="w-full md:w-auto bg-[#25D366] text-white px-lg py-md rounded-lg font-label-md flex items-center justify-center gap-xs hover:brightness-105 transition-all">
+<span class="material-symbols-outlined">chat</span>
+                            Reservar por WhatsApp
+                        </button>
+</div>
+<div class="md:w-1/2 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional dog grooming scene showing a clean, well-lit salon environment. A calm poodle is being gently bathed by a professional groomer using premium pet care products. The atmosphere is warm and inviting, using a palette of soft browns and clean whites to communicate professional hygiene and tender care in a neighborhood setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9IyQzweEIRm7gynFdj6zRI4CiJoH9G-BW0mnFIRd70Cdn8OrttKbmBBYkQQ-S9SE0VKUkhSV8V4qw_VYa1oqlFutGAWp0owOZHRkh_pjFRk9_D1tumR9ZAmM8348BE7zKz8YY7OAWbBECM5jkqxhGQzGFiLjtlbp1ygbDgrtkZ8RHOg2uR7N6Mn74MtduCRYgAHfzNOB6YxIzX--O1LWe5mE5DnEAuIzddsptyi4K191yN8shzYqKFhLNNoh1gNtVBQfVl_3vvngm"/>
+</div>
+</div>
+<!-- Secondary Services -->
+<div class="space-y-md">
+<div class="bg-surface p-md rounded-xl shadow-tactile border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl mb-xs">medical_services</span>
+<h4 class="font-label-md mb-xs">Farmacia Veterinaria</h4>
+<p class="text-body-md text-on-surface-variant">Pipetas, antiparasitarios y suplementos esenciales.</p>
+</div>
+<div class="bg-surface p-md rounded-xl shadow-tactile border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl mb-xs">restaurant</span>
+<h4 class="font-label-md mb-xs">Nutrición Especial</h4>
+<p class="text-body-md text-on-surface-variant">Asesoramiento en las mejores dietas para cada etapa.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Catalog Showcase - Bento Grid Style -->
+<section class="py-xl bg-surface" id="catalogo">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xl">Nuestro Catálogo en Tienda</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Alimentos -->
+<div class="col-span-2 row-span-2 group relative overflow-hidden rounded-xl h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A clean, organized display of premium pet food bags on wooden shelves in a boutique pet shop. The lighting is bright and warm, emphasizing the high-quality ingredients and professional packaging. The scene reflects a trustworthy neighborhood store in Monte Castro, with a focused color palette of browns and cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdgoBmQZNkv77K19_5-h0hT8ZAUv8BSHQcMJkHhzc4d7XYLZfHUFbG12N0Sd7cnoKaFCO8pnKna9Z5c3TKFldHau-xN55nCGf9RQwY4eq1sVVeAKZXvTE2TfssAB-9zw7W8v_gmJ0N7CYX1cA1VaTHJJR4Z3VViibPJ1gZYHg3MHpvfexDxEBuD5b5w7QZwgK2Gr3tpO0XquCaBrPKDYLkYe-LZBxq_tRfejFaRp_624E9JeQNP1tF1vBud73oBxwrji12YEkfWSNQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-lg">
+<h3 class="text-white font-headline-md">Alimentos Premium</h3>
+<p class="text-white/80 text-body-md">Las mejores marcas nacionales e importadas.</p>
+</div>
+</div>
+<!-- Juguetes -->
+<div class="group relative overflow-hidden rounded-xl h-[188px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A vibrant and colorful collection of durable dog toys, including ropes and rubber balls, arranged neatly in a light-filled retail environment. The aesthetic is playful yet professional, utilizing soft pink and golden accents to create a welcoming atmosphere for pet owners looking for quality entertainment for their pets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIS8Xw6T8RIFi4qrtUKZKtQDxDQZqLuxynWDSHA7tsFywM3NSFzMOdz8vph-7byJM8FA7bEQR4EmqcBH6BaXouk6X1LknrfZHWQfhH7C16XQ6ehYQ45lqmkWMiOgy2NbsJsDYJoqYBa90dEnwt7w9KVzVHYuGd51zIyjXCWLCHROL0kiRnwv5KkA08fTBfZdImcZn-zU1aSZMh0GFYFAFrP5kl1dcG4OOG5WWyqnVZYSIh0LQYDIuyVGljzRA3GJugw8SpWLZRJjto"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<h3 class="text-white font-label-md">Juguetes</h3>
+</div>
+</div>
+<!-- Accesorios -->
+<div class="group relative overflow-hidden rounded-xl h-[188px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of stylish and durable leather dog collars and leashes in various shades of brown and tan. The lighting is soft and cinematic, highlighting the tactile quality of the materials. The overall visual style is modern and sophisticated, perfect for a high-end community pet boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW2Or2k1pC2Xq0EX99be_Z7bBSF5UutkY54HLOyBbheqgq1SkHXQnhEmtil87ddrCoGmv2fQiQfds6w4_ddw9ZE0i5IZJRTqUWSaTC83c7_w_I0c2L8kCyk7Tt1lx-g-R64wy3qa7_XG1J8STha5YFMvO17uNh55BDhH_xy1qBntP3xmIYvLTlnai-XPXjhvs3vaDPWIhLuPpSPEZwwmgrkNlvcxGaGbq-pzVqicyChuHtWYXGeTTAkeWRcBW7wuqpmyX-y_0iR59N"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<h3 class="text-white font-label-md">Accesorios</h3>
+</div>
+</div>
+<!-- Camas/Higiene -->
+<div class="col-span-2 group relative overflow-hidden rounded-xl h-[188px]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cozy assortment of plush pet beds in neutral tones, displayed in a bright and airy pet shop. The scene conveys comfort and homey warmth, using a clean light-mode design with subtle ambient shadows. The image aligns with the 'Trusted Local Neighbor' brand identity of the shop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7Jf7u3eLszvfKBcBWrrdc-HQWYdQ0sZxQaqNzTCIGcvbaeIO1YhXfu9IkAssXKBGn9wSFnxJYcsBOR8Xoo40CmjKD-f2oy2OBepIx7r1xovdmGHfoPsgcXuq6pH8RpvzWND0FVJpX1vrxEV-yMSx5g7yR1elSHnLaBrYk9BQeuCYelz1axC2dwoZZWCZbM3XXdqiFsSsphY6KK5jH45x8huBP4cI8UyBFmQIaeqDU1WjvKmyobnkXVHqyPbDsnvGbel1XRmJXAuj"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent flex items-center p-lg">
+<h3 class="text-white font-headline-md">Higiene y Confort</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="py-xl bg-surface-container overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-lg flex flex-col md:flex-row justify-between items-center gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Comunidad Fiel</h2>
+<p class="text-body-md text-on-surface-variant font-bold mt-xs">Seguinos en @petshopmiamigofiel</p>
+</div>
+<a class="text-primary font-label-md flex items-center gap-xs hover:underline bg-primary/5 px-md py-xs rounded-full transition-all" href="#">
+    Seguinos en Instagram
+    <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+<div class="relative group max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Navigation Arrows -->
+<button class="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/60">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/60">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Reel Card 1 -->
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-floating group/card cursor-pointer">
+<img alt="Dog grooming reel" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClpMZeEoxTkUAQU8dQdxwxTyYLAbQMnEAtdTrxLH2pU6RpEF0dfUjb6ZDSxMHphIuoaRvTNKwFkhKyJ_XqIIKImHD5ZhOMfDscIKx_Xf933-UmjEKbnOZ_cqw_feO7xZZ0M4iGOJSEYVpX9iARCx0DhL9icuTpt9YPA7TRlJ3_EgLEEvGnNaMS2X1GcsR8Vn8HZjyr-eOUs3moJZTSmNVrfdOQ8oo96sk5pf836uBueuvVovsNuxS6HmNZX2FWCX7zXC4CsK-fhLne"/>
+<div class="absolute inset-0 bg-black/10 group-hover/card:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/30 backdrop-blur-md p-4 rounded-full text-white border border-white/20">
+<span class="material-symbols-outlined text-[40px] fill-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
+<img alt="Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug2V2viNA9co9TZ7LzrBhCLtORRCFGZxVFP7-FKvpRY2yVACnf-7Ajcs_4yCdfiHkCAnoHORj_V8OyzMY5zRPobRIhuTVK2Iol1RuSC7-EJkm5lP0bgHmFKy4ZvciSzUb8gH_3VVcakeUnz4om-WyHBWanpkzHjRm1MhXdP8PnPcvFfITN1O1ZaLoO5x9zj8LAfD4XkOFKTUWDEbgQj9Gpsd8cKdPB-66UwHcrSwp_MO1pMEL2ehHw83fxcHkegoVDfxKfp9gJXRDU"/>
+</div>
+<div class="text-white">
+<p class="text-label-md leading-none">miamigofiel</p>
+<p class="text-[10px] opacity-80">Monte Castro</p>
+</div>
+</div>
+<img alt="Instagram" class="w-5 h-5 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApGbXvVq_NEY11Nc4nIPmXtEbIlO0SLHnbt2YztqnUTyjz3xTxeZsc6X3gCwu4X9mQhv-IpkE03VroTQkIauBx4H4gqZsd2ELb2Vn28LD3JNDLRPPrmzC5H9P4gsXncx_lVvGR_DH-X1IVocxblMqzGU-rngpaJQo13KGPmgin72_6WdlQT2NhY73p-yAn1QZ0vBf_dPBzjjxcwWZW0voPSui4JcnEvfTLCbZj0iv-iT7AMokhJ1BQ3Me7OaipS0PkNVyzC1x1NKcx"/>
+</div>
+</div>
+<!-- Reel Card 2 -->
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-floating group/card cursor-pointer">
+<img alt="Puppies playing reel" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT8MMW66-deLkoReFF-BBiET9THm0tcFithKTgopGLkI1IdxG_xdjmrjxH-RSo0TzCgmlKjJ6Dzx7CO2Zx4RNHnrCGGyToqqUx8ZcAwUsESSdTeQKq-LS_heV7_El2NSgTQYPF77CY_xCk10V7AiFQM2Cg9xg5elq5y3VpmFkMVLSS-8kbxbFpNn0SLDaTeFeIL-NTbGtc24Wz3zmz_zhXP3t9XoAUVWIW9DNT2O4c-xJNy_f4MVSprBKMKRXGRmWtJMggQTFon0tB"/>
+<div class="absolute inset-0 bg-black/10 group-hover/card:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/30 backdrop-blur-md p-4 rounded-full text-white border border-white/20">
+<span class="material-symbols-outlined text-[40px] fill-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
+<img alt="Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug2V2viNA9co9TZ7LzrBhCLtORRCFGZxVFP7-FKvpRY2yVACnf-7Ajcs_4yCdfiHkCAnoHORj_V8OyzMY5zRPobRIhuTVK2Iol1RuSC7-EJkm5lP0bgHmFKy4ZvciSzUb8gH_3VVcakeUnz4om-WyHBWanpkzHjRm1MhXdP8PnPcvFfITN1O1ZaLoO5x9zj8LAfD4XkOFKTUWDEbgQj9Gpsd8cKdPB-66UwHcrSwp_MO1pMEL2ehHw83fxcHkegoVDfxKfp9gJXRDU"/>
+</div>
+<div class="text-white">
+<p class="text-label-md leading-none">miamigofiel</p>
+<p class="text-[10px] opacity-80">Monte Castro</p>
+</div>
+</div>
+<img alt="Instagram" class="w-5 h-5 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCJwMlaPJpn1LFXFYuwJOvQ-BD-BmST-xMYr64zk60dhJEPt681aEQ96pb5fWWGxfidI7mDYC3Xc1gyATA_4FpnqQgrCbVjCViyEV6z5VKQ5F0Sh1wG-CDLNpwR1WXelwohqDkgDuy1tG73j02fOyJNXwWDYl8pUPQrwLOBPtqt4wCsc-dIFEcgQeB00gkU_wf3_4kf6HE_S9HDruVD6x1QYnsZFesQQkoZkjy_gnJNOF5_7Kj57jqRecO8HR1uPMNKCmbZj-MbCoW"/>
+</div>
+</div>
+<!-- Reel Card 3 -->
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-floating group/card cursor-pointer">
+<img alt="Cat curios reel" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZXhqbpLoI98vSs0_8AJcGWXKsLl4bimBAVD4sKioR7FmFNq6d-QwrBwoZp-SIpiJ_28epcLdCjh9hsg8beYHasMLv3rRwIt-vJqHKmBBhE0_6aFGjQygvzhryEAocCmXwxROvR5YhGXWvuR2wi1icEfFPr3n39fPdPmDezP43-d8AG7q9d8Xdxvta5u6tv9P8ijR0ZZZ63a7SG5RxonFFsgn9yhTJ2QxB8biWvU7hucAapUtczCsb4f7vOoEJK0gejLrvrK6j53SH"/>
+<div class="absolute inset-0 bg-black/10 group-hover/card:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/30 backdrop-blur-md p-4 rounded-full text-white border border-white/20">
+<span class="material-symbols-outlined text-[40px] fill-1">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
+<img alt="Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug2V2viNA9co9TZ7LzrBhCLtORRCFGZxVFP7-FKvpRY2yVACnf-7Ajcs_4yCdfiHkCAnoHORj_V8OyzMY5zRPobRIhuTVK2Iol1RuSC7-EJkm5lP0bgHmFKy4ZvciSzUb8gH_3VVcakeUnz4om-WyHBWanpkzHjRm1MhXdP8PnPcvFfITN1O1ZaLoO5x9zj8LAfD4XkOFKTUWDEbgQj9Gpsd8cKdPB-66UwHcrSwp_MO1pMEL2ehHw83fxcHkegoVDfxKfp9gJXRDU"/>
+</div>
+<div class="text-white">
+<p class="text-label-md leading-none">miamigofiel</p>
+<p class="text-[10px] opacity-80">Monte Castro</p>
+</div>
+</div>
+<img alt="Instagram" class="w-5 h-5 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcMhggOONWu5HNXfWBgBvqs1dTF53NamgJqELHoGWUy11mES7Qa2p-32UtnfhOGfRxPxCXqC_A79loITYnbTNHUPpo1N-MSvSyUpsgfCMtdW8J52tDUC8xDiSdwJ3RiZ_egayoK14Z7HFG2yoKOG4nsrJotvt1TAYyzhMbk_B6aXcIkvgIeX8ysQemT_g0EqabzgKTE9zZPksE3UlXG7cWGKba1l3cDj8uGwsdZnKYuyVk-dXpG5rwq2DX4P4PkBi_6ZtpBPWEeajK"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Map Section -->
+<section class="py-xl bg-surface" id="ubicacion">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-md">Vení a Visitarnos</h2>
+<div class="space-y-lg">
+<div class="flex gap-md">
+<div class="bg-primary-fixed p-sm rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-primary-fixed">location_on</span>
+</div>
+<div>
+<h4 class="font-label-md">Dirección</h4>
+<p class="text-body-md text-on-surface-variant">Av. Alvarez Jonte 5133, Monte Castro</p>
+<p class="text-body-md text-on-surface-variant">CABA, Buenos Aires</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="bg-primary-fixed p-sm rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-primary-fixed">schedule</span>
+</div>
+<div>
+<h4 class="font-label-md">Horarios de Atención</h4>
+<p class="text-body-md text-on-surface-variant">Lunes a Viernes: 09:00 - 19:30</p>
+<p class="text-body-md text-on-surface-variant">Sábados: 09:00 - 14:00</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="bg-primary-fixed p-sm rounded-lg h-fit">
+<span class="material-symbols-outlined text-on-primary-fixed">call</span>
+</div>
+<div>
+<h4 class="font-label-md">Contacto</h4>
+<p class="text-body-md text-on-surface-variant">+54 11 1234-5678</p>
+<p class="text-body-md text-on-surface-variant">info@miamigofiel.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="h-[400px] rounded-xl overflow-hidden shadow-floating border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-location="Monte Castro, Buenos Aires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHcBVQYxXB-r4AIwohQ1TYEdduI4Zwgd23UMUnHgnSgcavsKxN0GrZxKwYY2tE6IxKoRTO89oo0wPCN39YCxjEpA2x3xaHVIYzojNR1q8rCJGNIdOEGK8RFjMld-C2E1oIErqP-m007rCHySS7-6IpPqdBMywUq9iOsVJgNAToIepeXHLr9ij_7d3jrKcmTzw7Z0vJE7iSsVyoLzOAC6AW9kfVIzhFu0dgsqlC0jxDNPwgu-k8VhrU1Z48KKo26b2VnkjQMXDIm6Ig"/>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-high py-md border-t border-outline-variant/30">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md items-start mb-sm">
+<div class="md:col-span-2">
+<span class="font-headline-md text-headline-md text-primary block mb-xs">Mi Amigo Fiel</span>
+<p class="text-label-sm text-on-surface-variant mb-sm max-w-sm">
+                    Cuidando a las mascotas del barrio con amor y profesionalismo. Tu vecino de confianza en Monte Castro.
+                </p>
+<div class="flex gap-md">
+<a class="text-primary text-label-sm hover:translate-x-1 transition-transform" href="#">Instagram</a>
+<a class="text-primary text-label-sm hover:translate-x-1 transition-transform" href="#">WhatsApp</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md mb-xs">Accesos Rápidos</h4>
+<ul class="space-y-1">
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Horarios</a></li>
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Ubicación</a></li>
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Términos</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md mb-xs">Servicios</h4>
+<ul class="space-y-1">
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Baño y Corte</a></li>
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Alimentos</a></li>
+<li><a class="text-on-surface-variant text-label-sm hover:text-primary transition-all" href="#">Accesorios</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 pt-sm text-center md:text-left">
+<p class="text-[12px] text-on-surface-variant/70">© 2024 Petshop Mi Amigo Fiel - Monte Castro.</p>
+</div>
+</div>
+</footer>
+<!-- FAB for quick action (Mobile/Web) -->
+<button class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-floating hover:scale-110 active:scale-95 transition-all z-40 flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px]">chat</span>
+</button>
+</body></html>
